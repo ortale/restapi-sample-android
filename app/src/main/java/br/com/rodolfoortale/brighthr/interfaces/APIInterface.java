@@ -1,9 +1,9 @@
 package br.com.rodolfoortale.brighthr.interfaces;
 
-import br.com.rodolfoortale.brighthr.model.User;
 import br.com.rodolfoortale.brighthr.model.UserResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
@@ -14,5 +14,5 @@ import retrofit2.http.POST;
 public interface APIInterface {
     @FormUrlEncoded
     @POST("Account/PostValidateUser")
-    Call<UserResponse> createUser(@Body User user);
+    Call<UserResponse> createUser(@Field("username") String username, @Field("password") String password);
 }

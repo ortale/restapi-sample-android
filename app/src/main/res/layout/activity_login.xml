@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/LoginEditText"
-        android:text="@string/login_email_address"
+        android:hint="@string/login_email_address"
         android:inputType="textEmailAddress"
         android:imeOptions="actionNext" />
 
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/LoginEditText"
-        android:text="@string/login_password"
+        android:hint="@string/login_password"
         android:inputType="textPassword"
         android:imeOptions="actionGo" />
 

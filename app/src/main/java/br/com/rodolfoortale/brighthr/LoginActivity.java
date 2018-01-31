@@ -2,13 +2,18 @@ package br.com.rodolfoortale.brighthr;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import br.com.rodolfoortale.brighthr.api.APIRequest;
 import br.com.rodolfoortale.brighthr.helper.FormHelper;
 import br.com.rodolfoortale.brighthr.interfaces.OnRequestCallbackInterface;
+import br.com.rodolfoortale.brighthr.listeners.OnLoginCallbackListener;
+import br.com.rodolfoortale.brighthr.model.ErrorResponse;
+import br.com.rodolfoortale.brighthr.model.UserResponse;
 
 public class LoginActivity extends AppCompatActivity implements OnRequestCallbackInterface {
     EditText edtLogin;
@@ -42,19 +47,24 @@ public class LoginActivity extends AppCompatActivity implements OnRequestCallbac
     private void login() {
         formHelper = FormHelper.getInstance(this);
 
+        apiRequest = new APIRequest(this);
+        apiRequest.login(edtLogin.getText().toString(), edtPassword.getText().toString());
+
+        /*
         if (formHelper.validateLogin(edtLogin, edtPassword)) {
             apiRequest = new APIRequest();
             apiRequest.login(edtLogin.getText().toString(), edtPassword.getText().toString());
         }
+        */
     }
 
     @Override
-    public void onResponseCallback() {
-
+    public void onResponseCallback(UserResponse userResponse) {
+        Toast.makeText(this, userResponse.getUserTimeZoneName(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onFailureCallback() {
-
+    public void onFailureCallback(ErrorResponse errorResponse) {
+        Toast.makeText(this, errorResponse.getErrorMessage(), Toast.LENGTH_SHORT).show();
     }
 }

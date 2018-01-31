@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import br.com.rodolfoortale.brighthr.R;
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by rodolfoortale on 31/01/2018.
@@ -17,7 +16,6 @@ public class FormHelper {
     private static FormHelper instance = null;
 
     private Context context;
-    private SweetAlertDialog sweetAlertDialog;
 
     private FormHelper(Context context) {
         this.context = context;
@@ -73,6 +71,10 @@ public class FormHelper {
 
                 if (!text.isEmpty()) {
                     btnLogin.setEnabled(true);
+                }
+
+                else {
+                    btnLogin.setEnabled(false);
                 }
             }
         };
