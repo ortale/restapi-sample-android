@@ -1,15 +1,29 @@
 package br.com.rodolfoortale.brighthr.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by rodolfoortale on 31/01/2018.
  */
 
 public class UserResponse {
+    @SerializedName("companyId")
     private Integer companyId;
+
+    @SerializedName("userId")
     private Integer userId;
+
+    @SerializedName("companyTimeZoneName")
     private String companyTimeZoneName;
+
+    @SerializedName("userTimeZoneName")
     private String userTimeZoneName;
+
+    @SerializedName("hasFixedWorkingTimePattern")
     private Boolean hasFixedWorkingTimePattern;
+
+    @SerializedName("token")
+    private Token token;
 
     public Integer getCompanyId() {
         return companyId;
@@ -49,5 +63,13 @@ public class UserResponse {
 
     public void setHasFixedWorkingTimePattern(Boolean hasFixedWorkingTimePattern) {
         this.hasFixedWorkingTimePattern = hasFixedWorkingTimePattern;
+    }
+
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
     }
 }

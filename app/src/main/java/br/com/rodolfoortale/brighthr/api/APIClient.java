@@ -11,7 +11,7 @@ public class APIClient {
 
     public static Retrofit getClient() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://reqres.in")
+                .baseUrl(APICons.kUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

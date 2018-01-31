@@ -6,13 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import br.com.rodolfoortale.brighthr.api.APIRequest;
 import br.com.rodolfoortale.brighthr.helper.FormHelper;
+import br.com.rodolfoortale.brighthr.interfaces.OnRequestCallbackInterface;
 
-public class LoginActivity extends AppCompatActivity {
-    FormHelper formHelper;
+public class LoginActivity extends AppCompatActivity implements OnRequestCallbackInterface {
     EditText edtLogin;
     EditText edtPassword;
     Button btnLogin;
+
+    FormHelper formHelper;
+
+    APIRequest apiRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,18 @@ public class LoginActivity extends AppCompatActivity {
         formHelper = FormHelper.getInstance(this);
 
         if (formHelper.validateLogin(edtLogin, edtPassword)) {
-
+            apiRequest = new APIRequest();
+            apiRequest.login(edtLogin.getText().toString(), edtPassword.getText().toString());
         }
+    }
+
+    @Override
+    public void onResponseCallback() {
+
+    }
+
+    @Override
+    public void onFailureCallback() {
+
     }
 }
