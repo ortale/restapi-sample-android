@@ -1,6 +1,7 @@
 package br.com.rodolfoortale.brighthr.api;
 
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by rodolfoortale on 31/01/2018.
