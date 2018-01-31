@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         formHelper = FormHelper.getInstance(this);
 
         if (formHelper.validateLogin(edtLogin, edtPassword)) {
-            
+
         }
     }
 }
