@@ -6,6 +6,6 @@ package br.com.rodolfoortale.brighthr.helper;
 
 public class FormHelper {
     public static void validateLogin(String login, String password) {
-        
+
     }
 }
