@@ -16,7 +16,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/edtLogin"
+        android:id="@+id/edt_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/LoginEditText"
@@ -35,9 +35,10 @@
 
     <Button
         android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         style="@style/ButtonDefault"
         android:text="@string/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:enabled="false" />
 
 </LinearLayout>

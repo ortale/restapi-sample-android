@@ -5,4 +5,6 @@
     <string name="login_password">Password</string>
     <string name="login_button">Login</string>
     <string name="login_logo">BrightHR Logo</string>
+    <string name="login_invalid_email">Email is invalid.</string>
+    <string name="login_invalid_password">Password is invalid.</string>
 </resources>
