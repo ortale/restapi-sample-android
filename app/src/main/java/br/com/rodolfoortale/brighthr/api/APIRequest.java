@@ -1,5 +1,9 @@
 package br.com.rodolfoortale.brighthr.api;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import br.com.rodolfoortale.brighthr.interfaces.APIInterface;
 import br.com.rodolfoortale.brighthr.interfaces.OnRequestCallbackInterface;
 import br.com.rodolfoortale.brighthr.listeners.OnLoginCallbackListener;
@@ -14,11 +18,14 @@ import retrofit2.Response;
  */
 
 public class APIRequest {
+    private Context context;
     private OnLoginCallbackListener onLoginCallbackListener;
     private APIInterface apiInterface;
     private ErrorResponse errorResponse;
 
-    public APIRequest(OnRequestCallbackInterface onRequestCallbackInterface) {
+    public APIRequest(Context context, OnRequestCallbackInterface onRequestCallbackInterface) {
+        this.context = context;
+
         onLoginCallbackListener = new OnLoginCallbackListener();
         onLoginCallbackListener.addAPICallbackListener(onRequestCallbackInterface);
     }
@@ -27,6 +34,11 @@ public class APIRequest {
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
         errorResponse = new ErrorResponse();
+
+        if (!isNetworkAvailable()) {
+            errorResponse.setErrorMessage(APICons.kErrorBadConnection);
+            return;
+        }
 
         Call<UserResponse> call = apiInterface.createUser(username, password);
         call.enqueue(new Callback<UserResponse>() {
@@ -62,5 +74,11 @@ public class APIRequest {
                 onLoginCallbackListener.onFailureCallback(errorResponse);
             }
         });
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
