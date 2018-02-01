@@ -9,7 +9,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * APIInterface for Retrofit
  */
 
 public interface APIInterface {

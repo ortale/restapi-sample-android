@@ -4,7 +4,7 @@ import br.com.rodolfoortale.brighthr.model.ErrorResponse;
 import br.com.rodolfoortale.brighthr.model.UserResponse;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * Interface that communicates between view and requests
  */
 
 public interface OnRequestCallbackInterface {

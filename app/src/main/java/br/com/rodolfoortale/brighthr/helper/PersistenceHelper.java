@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 import br.com.rodolfoortale.brighthr.api.APICons;
 
 /**
- * Created by rodolfoortale on 01/02/2018.
+ * Local persistence helper
  */
 
 public class PersistenceHelper {
@@ -15,10 +15,19 @@ public class PersistenceHelper {
     private static PersistenceHelper instance = null;
     private static SharedPreferences preferences;
 
+    /**
+     *
+     * @param context - needed to UI
+     */
     private PersistenceHelper(Context context) {
         this.context = context;
     }
 
+    /**
+     *
+     * @param context
+     * @return - instance of PersistenceHelper
+     */
     public static PersistenceHelper getInstance(Context context) {
         if(instance == null) {
             instance = new PersistenceHelper(context);
@@ -26,6 +35,11 @@ public class PersistenceHelper {
         return instance;
     }
 
+    /**
+     * Saves login token to use on future requests
+     *
+     * @param token
+     */
     public void saveToken(String token) {
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
@@ -33,6 +47,13 @@ public class PersistenceHelper {
         editor.apply();
     }
 
+    /**
+     *
+     * Get Token to use on safe requests
+     *
+     * @param context
+     * @return String
+     */
     public String getToken(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 

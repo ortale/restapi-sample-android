@@ -6,10 +6,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * Class responsible for API Rest settings using Retrofit
  */
 
 public class APIClient {
+    /**
+     * Returns retrofit instance
+     *
+     * @return retrofit
+     */
     public static Retrofit getClient() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(interceptor).build();

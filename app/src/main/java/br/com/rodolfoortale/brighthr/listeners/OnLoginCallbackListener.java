@@ -5,22 +5,34 @@ import br.com.rodolfoortale.brighthr.model.ErrorResponse;
 import br.com.rodolfoortale.brighthr.model.UserResponse;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * Listener that tells listener about an login callback event
  */
 
 public class OnLoginCallbackListener {
     private OnRequestCallbackInterface apiRequestCallbackInterface;
 
+    /**
+     *
+     * @param apiRequestCallbackInterface
+     */
     public void addAPICallbackListener(OnRequestCallbackInterface apiRequestCallbackInterface) {
         this.apiRequestCallbackInterface = apiRequestCallbackInterface;
     }
 
+    /**
+     *
+     * @param userResponse
+     */
     public void onResponseCallback(UserResponse userResponse) {
         if (apiRequestCallbackInterface != null) {
             apiRequestCallbackInterface.onResponseCallback(userResponse);
         }
     }
 
+    /**
+     *
+     * @param errorResponse
+     */
     public void onFailureCallback(ErrorResponse errorResponse) {
         if (apiRequestCallbackInterface != null) {
             apiRequestCallbackInterface.onFailureCallback(errorResponse);

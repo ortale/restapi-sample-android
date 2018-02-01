@@ -1,7 +1,7 @@
 package br.com.rodolfoortale.brighthr.api;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * Manages all API constants in the project
  */
 
 public class APICons {

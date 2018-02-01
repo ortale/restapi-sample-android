@@ -9,7 +9,7 @@ import android.widget.EditText;
 import br.com.rodolfoortale.brighthr.R;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * Helper to forms in the project
  */
 
 public class FormHelper {
@@ -17,10 +17,19 @@ public class FormHelper {
 
     private Context context;
 
+    /**
+     *
+     * @param context - needed to UI
+     */
     private FormHelper(Context context) {
         this.context = context;
     }
 
+    /**
+     *
+     * @param context
+     * @return - instance of FormHelper
+     */
     public static FormHelper getInstance(Context context) {
         if(instance == null) {
             instance = new FormHelper(context);
@@ -28,6 +37,15 @@ public class FormHelper {
         return instance;
     }
 
+    /**
+     *
+     * Login Form Validation
+     *
+     * @param edtLogin
+     * @param edtPassword
+     * @return boolean
+     *
+     */
     public boolean validateLogin(EditText edtLogin, EditText edtPassword) {
         String valLogin = edtLogin.getText().toString();
 
@@ -40,6 +58,14 @@ public class FormHelper {
         return true;
     }
 
+    /**
+     *
+     * Checks for empty fields while typing
+     *
+     * @param edtLogin
+     * @param edtPassword
+     * @param btnLogin
+     */
     public void checkEmptyFields(EditText edtLogin, EditText edtPassword, final Button btnLogin) {
         TextWatcher textWatcher = new TextWatcher() {
             @Override

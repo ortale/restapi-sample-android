@@ -15,7 +15,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * Controls every request in the project
  */
 
 public class APIRequest {
@@ -24,6 +24,11 @@ public class APIRequest {
     private APIInterface apiInterface;
     private ErrorResponse errorResponse;
 
+    /**
+     *
+     * @param context - needed to UI
+     * @param onRequestCallbackInterface - needed to present callback in View
+     */
     public APIRequest(Context context, OnRequestCallbackInterface onRequestCallbackInterface) {
         this.context = context;
 
@@ -31,6 +36,12 @@ public class APIRequest {
         onLoginCallbackListener.addAPICallbackListener(onRequestCallbackInterface);
     }
 
+    /**
+     * Do login request
+     *
+     * @param username
+     * @param password
+     */
     public void login(final String username, String password) {
         apiInterface = APIClient.getClient().create(APIInterface.class);
 

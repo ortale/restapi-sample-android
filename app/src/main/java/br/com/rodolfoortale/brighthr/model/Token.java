@@ -3,7 +3,7 @@ package br.com.rodolfoortale.brighthr.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by rodolfoortale on 31/01/2018.
+ * Token class for Retrofit
  */
 
 public class Token {
