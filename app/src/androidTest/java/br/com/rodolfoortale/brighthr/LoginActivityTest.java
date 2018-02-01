@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 public class LoginActivityTest {
     @Test
     public void isValidPassword() throws Exception {
-        String password = "Aasdfg";
+        String password = "1Asdfg";
         String patternPassword = "^(?=.*[0-9])(?=.*[A-Z]).{6,}$";
 
         assertTrue(password.matches(patternPassword));
