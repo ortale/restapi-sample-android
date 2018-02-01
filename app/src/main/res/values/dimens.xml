@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimenPaddingDefault">15dp</dimen>
+    <dimen name="dimenMarginDefault">10dp</dimen>
+    <dimen name="dimenButtonRound">15dp</dimen>
+</resources>

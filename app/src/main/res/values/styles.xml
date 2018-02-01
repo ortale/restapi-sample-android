@@ -8,4 +8,36 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- App Custom style -->
+    <style name="BackgroundDefault">
+        <item name="android:background">@color/colorBackgroundDefault</item>
+        <item name="android:padding">@dimen/dimenPaddingDefault</item>
+    </style>
+
+    <style name="MarginDefault">
+        <item name="android:layout_margin">@dimen/dimenMarginDefault</item>
+    </style>
+
+    <style name="ImageDefault" parent="MarginDefault">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="EditTextDefault">
+        <item name="android:textColorHint">@color/colorEditTextHintDefault</item>
+        <item name="android:textColor">@color/colorEditTextTextDefault</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="LoginEditText" parent="EditTextDefault">
+        <item name="android:layout_marginTop">@dimen/dimenMarginDefault</item>
+    </style>
+
+    <style name="ButtonDefault">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textColor">@color/colorButtonTextDefault</item>
+        <item name="android:layout_marginTop">@dimen/dimenMarginDefault</item>
+    </style>
+
 </resources>
