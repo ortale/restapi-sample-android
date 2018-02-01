@@ -30,7 +30,6 @@ public class FormHelper {
 
     public boolean validateLogin(EditText edtLogin, EditText edtPassword) {
         String valLogin = edtLogin.getText().toString();
-        String valPassword = edtPassword.getText().toString();
 
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(valLogin).matches()) {
             edtLogin.setError(context.getString(R.string.login_invalid_email));
