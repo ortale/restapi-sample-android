@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import br.com.rodolfoortale.brighthr.helper.PersistenceHelper;
 import br.com.rodolfoortale.brighthr.interfaces.APIInterface;
 import br.com.rodolfoortale.brighthr.interfaces.OnRequestCallbackInterface;
 import br.com.rodolfoortale.brighthr.listeners.OnLoginCallbackListener;
@@ -37,6 +38,7 @@ public class APIRequest {
 
         if (!isNetworkAvailable()) {
             errorResponse.setErrorMessage(APICons.kErrorBadConnection);
+            onLoginCallbackListener.onFailureCallback(errorResponse);
             return;
         }
 
@@ -48,6 +50,10 @@ public class APIRequest {
                     UserResponse userResponse = response.body();
 
                     if (userResponse != null) {
+                        PersistenceHelper persistenceHelper = PersistenceHelper.getInstance(context);
+
+                        persistenceHelper.saveToken(userResponse.getToken().getToken());
+
                         onLoginCallbackListener.onResponseCallback(userResponse);
                     }
                     else {

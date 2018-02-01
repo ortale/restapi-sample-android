@@ -47,15 +47,10 @@ public class LoginActivity extends AppCompatActivity implements OnRequestCallbac
     private void login() {
         formHelper = FormHelper.getInstance(this);
 
-        apiRequest = new APIRequest(this);
-        apiRequest.login(edtLogin.getText().toString(), edtPassword.getText().toString());
-
-        /*
         if (formHelper.validateLogin(edtLogin, edtPassword)) {
-            apiRequest = new APIRequest();
+            apiRequest = new APIRequest(this, this);
             apiRequest.login(edtLogin.getText().toString(), edtPassword.getText().toString());
         }
-        */
     }
 
     @Override

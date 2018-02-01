@@ -28,24 +28,12 @@ public class FormHelper {
         return instance;
     }
 
-    private boolean isValidPassword(String password) {
-        String pattern = "^(?=.*[0-9])(?=.*[A-Z]).{6,}$";
-
-        return password.matches(pattern);
-    }
-
     public boolean validateLogin(EditText edtLogin, EditText edtPassword) {
         String valLogin = edtLogin.getText().toString();
         String valPassword = edtPassword.getText().toString();
 
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(valLogin).matches()) {
             edtLogin.setError(context.getString(R.string.login_invalid_email));
-
-            return false;
-        }
-
-        else if (!isValidPassword(valPassword)) {
-            edtPassword.setError(context.getString(R.string.login_invalid_password));
 
             return false;
         }
