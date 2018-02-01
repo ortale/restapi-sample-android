@@ -23,7 +23,7 @@ public class APIRequest {
         onLoginCallbackListener.addAPICallbackListener(onRequestCallbackInterface);
     }
 
-    public void login(String username, String password) {
+    public void login(final String username, String password) {
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
         errorResponse = new ErrorResponse();
@@ -34,7 +34,14 @@ public class APIRequest {
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.code() == 200) {
                     UserResponse userResponse = response.body();
-                    onLoginCallbackListener.onResponseCallback(userResponse);
+
+                    if (userResponse != null) {
+                        onLoginCallbackListener.onResponseCallback(userResponse);
+                    }
+                    else {
+                        errorResponse.setErrorMessage(APICons.kErrorOther);
+                        onLoginCallbackListener.onFailureCallback(errorResponse);
+                    }
                 }
 
                 else if (response.code() == 403) {

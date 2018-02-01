@@ -1,5 +1,7 @@
 package br.com.rodolfoortale.brighthr.api;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -8,14 +10,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class APIClient {
-    private static Retrofit retrofit = null;
-
     public static Retrofit getClient() {
-        retrofit = new Retrofit.Builder()
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
+        return new Retrofit.Builder()
                 .baseUrl(APICons.kUrl)
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient)
                 .build();
-
-        return retrofit;
     }
 }

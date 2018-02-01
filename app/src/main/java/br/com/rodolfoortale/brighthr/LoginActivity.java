@@ -60,7 +60,8 @@ public class LoginActivity extends AppCompatActivity implements OnRequestCallbac
 
     @Override
     public void onResponseCallback(UserResponse userResponse) {
-        Toast.makeText(this, userResponse.getUserTimeZoneName(), Toast.LENGTH_SHORT).show();
+        String message = "Welcome to " + userResponse.getUserTimeZoneName();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
